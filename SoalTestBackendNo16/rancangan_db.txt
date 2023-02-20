@@ -1,0 +1,40 @@
+Tabel Toko
+-id_toko (primary key)
+-nama_toko
+-alamat_toko
+-jam_buka
+-jam_tutup
+
+Tabel Pegawai
+-id_pegawai (primary key)
+-nama_pegawai
+-id_toko (foreign key dari tabel Toko)
+-shift_kerja (nilai dapat berupa "Shift 1", "Shift 2", atau "Shift 3")
+
+Tabel Barang
+-id_barang (primary key)
+-nama_barang
+-harga_barang
+-deskripsi
+
+Tabel Transaksi
+-id_transaksi (primary key)
+-id_toko (foreign key dari tabel Toko)
+-id_pegawai (foreign key dari tabel Pegawai)
+-waktu_transaksi
+-total_harga
+
+Tabel Detail_Transaksi
+-id_detail (primary key)
+-id_transaksi (foreign key dari tabel Transaksi)
+-id_barang (foreign key dari tabel Barang)
+-jumlah
+-harga_satuan
+
+Penjelasan:
+Tabel Toko berisi informasi tentang toko, seperti ID toko, nama toko, alamat toko, dan jam buka-tutup. Jam buka-tutup juga akan digunakan untuk menentukan shift kerja dari pegawai.
+Tabel Pegawai berisi informasi tentang pegawai, seperti ID pegawai, nama pegawai, ID toko tempat ia bekerja, dan shift kerja pegawai. Nilai shift kerja dapat berupa "Shift 1", "Shift 2", atau "Shift 3".
+Tabel Transaksi berisi informasi tentang transaksi, seperti ID transaksi, ID toko tempat transaksi dilakukan, ID pegawai yang melakukan transaksi, waktu transaksi, dan total harga dari seluruh barang yang dibeli dalam transaksi.
+Tabel Detail_Transaksi berisi informasi tentang detail transaksi, seperti ID detail transaksi, ID transaksi yang dilakukan, ID barang yang dibeli, jumlah barang yang dibeli, dan harga satuan barang.
+Tabel Barang berisi informasi tentang barang yang dijual, seperti ID barang, nama barang, dan harga barang.
+Untuk menghasilkan laporan penjualan keseluruhan toko berdasarkan periode tertentu, dapat dilakukan dengan menghitung total_harga dari seluruh transaksi yang dilakukan pada periode tersebut berdasarkan ID toko. Sedangkan untuk laporan detail transaksi setiap akhir shift, dapat dilakukan dengan mengambil data transaksi pada shift terakhir pada setiap toko, dan menampilkan detail transaksi yang terjadi pada shift tersebut.
